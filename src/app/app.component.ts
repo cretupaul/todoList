@@ -13,8 +13,8 @@ const existingList = JSON.parse(sessionStorage.getItem('allTodoList'));
 
 export class AppComponent implements OnInit {
   title = 'Todo';
-  showTodoList: Array<TodoValue>;
   allTodoList: Array<TodoValue> = existingList ? existingList : [];
+  showTodoList: Array<TodoValue> = this.allTodoList;
   itemsActive: number =  this.getActiveNumber();
   toDoValue: TodoValue = {
     value : '',
@@ -30,11 +30,13 @@ export class AppComponent implements OnInit {
     this.setToDoElement(currentValue, true);
     this.insertToDoElement(this.toDoValue);
     this.resetInputValue(input);
+    this.itemsActive = this.getActiveNumber();
     this.saveToSession();
   }
 
   getActiveNumber(): number {
-    return this.allTodoList.filter(item => !item.completed).length;
+    console.log(this.showTodoList);
+    return this.showTodoList.filter(item => !item.completed).length;
   }
 
   setToDoElement(value: string, isActive: boolean = true): void {
@@ -76,7 +78,11 @@ export class AppComponent implements OnInit {
     this.showTodoList[element.index] = {...currentElement};
     this.saveToSession();
   }
-
+  removeItem(index: number) {
+    this.showTodoList.splice(index, 1);
+    this.itemsActive = this.getActiveNumber();
+    this.saveToSession();
+  }
   completed() {
     this.showTodoList =  this.allTodoList.filter(item => item.completed)
   }

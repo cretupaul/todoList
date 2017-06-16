@@ -7,7 +7,8 @@
     <input #box mdInput placeholder="Enter list item" class="insert-item" value="" (keyup.enter)="addElement(box)"/>
     <div class="all-current-items">
       <div class="each-item" *ngFor="let eachElement of showTodoList; index as i">
-        <app-todo-element (onUpdate) = "onUpdate($event, $event1)" (onCheck)="onChecked($event)" [element]="eachElement" [index] = "i" (click)="clickOnElement($event, i)"></app-todo-element>
+        <app-todo-element (onUpdate) = "onUpdate($event)" (onCheck)="onChecked($event)" [element]="eachElement" [index] = "i" (click)="clickOnElement($event, i)"></app-todo-element>
+        <div class="close-button" (click) = "removeItem(i)">x</div>
       </div>
     </div>
     <div class="list-bottom-buttons">

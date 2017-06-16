@@ -27,8 +27,11 @@ input.insert-item {
     margin-bottom: 5px;
     box-shadow: 1px 1px 1px 1px #ddd;
     padding: 5px;
+    position: relative;
 }
-
+.each-item:hover .close-button { 
+    display: block;
+}
 .list-bottom-buttons {
     float: left;
     width: 100%;
@@ -39,4 +42,12 @@ input.insert-item {
 }
 .each-bottom-info.all-buttons-container {
     float: right;
+}
+.close-button {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    color: #ddd;
+    cursor: pointer;
+    display: none;
 }
