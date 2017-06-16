@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+.full-todo-container {
+    display: table;
+    margin: auto;
+    width: 300px;
+}
+
+input.insert-item {
+    float: left;
+    width: 100%;
+    margin: 10px 0;
+    border: none;
+    box-shadow: 1px 1px 1px 1px #ddd;
+    padding: 10px;
+}
+
+.each-item {
+    float: left;
+    width: 100%;
+}
+
+.each-item {
+    float: left;
+    width: 100%;
+    margin-bottom: 5px;
+    box-shadow: 1px 1px 1px 1px #ddd;
+    padding: 5px;
+}
+
+.list-bottom-buttons {
+    float: left;
+    width: 100%;
+}
+
+.each-bottom-info {
+    float: left;
+}
+.each-bottom-info.all-buttons-container {
+    float: right;
+}
